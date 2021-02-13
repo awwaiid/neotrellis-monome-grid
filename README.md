@@ -17,3 +17,6 @@ References:
   * [OSC Send Example](https://github.com/CNMAT/OSC/blob/master/examples/ESP8266sendMessage/ESP8266sendMessage.ino)
   * [OSC Receive Example](https://github.com/CNMAT/OSC/blob/master/examples/ESP8266ReceiveMessage/ESP8266ReceiveMessage.ino)
 * [Monome Grid OSC](https://monome.org/docs/serialosc/osc/)
+
+TODO:
+* Measure where latency is worst

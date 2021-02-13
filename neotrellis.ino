@@ -23,26 +23,15 @@ void set_brightness(int level) {
 	}
 }
 
-void set_led(int x, int y, int level) {
-  if (!level) {
-    Serial.println("Setting to 0x000000");
-    trellis.setPixelColor(x, y, 0x000000);
-  } else {
-    Serial.println("Setting color");
-    // trellis.setPixelColor(x, y, 0xcccccc);
-    trellis.setPixelColor(x, y, random(0x1000000));
-  }
+void set_led(int x, int y, int color) {
+  trellis.setPixelColor(x, y, color);
   trellis.show();
 }
 
-void set_all_led(int level) {
+void set_all_led(int color) {
   for(int x = 0; x < X_DIM; x++) {
     for(int y = 0; y < Y_DIM; y++) {
-      if (!level) {
-        trellis.setPixelColor(x, y, 0x000000);
-      } else {
-        trellis.setPixelColor(x, y, random(0x1000000));
-      }
+      trellis.setPixelColor(x, y, color);
     }
   }
   trellis.show();

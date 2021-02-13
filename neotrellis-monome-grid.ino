@@ -45,15 +45,13 @@ TrellisCallback blink(keyEvent evt) {
     Serial.print(y);
     Serial.println("");
 
-    //trellis.setPixelColor(x, y, 0xff0000);
-    trellis.setPixelColor(evt.bit.NUM, random(0x1000000));
-    trellis.show();
-    sendNoteOn(0, evt.bit.NUM + 30, 120);
+    send_grid_key(x, y, 1);
 
   } else if(evt.bit.EDGE == SEESAW_KEYPAD_EDGE_FALLING) {
-    trellis.setPixelColor(evt.bit.NUM, 0);
-    trellis.show();
-    sendNoteOff(0, evt.bit.NUM + 30);
+
+    int x = evt.bit.NUM % 8;
+    int y = evt.bit.NUM / 8;
+    send_grid_key(x, y, 0);
   }
 
   return 0;
@@ -111,6 +109,6 @@ void loop() {
   // (a) needed
   // (b) a good idea
   // ... But it was in whatever example I copied
-  delay(20);
+  // delay(20);
 }
 

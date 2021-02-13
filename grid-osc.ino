@@ -32,6 +32,17 @@ void sendNoteOff(int channel, int note) {
   msg.empty();
 }
 
+// /grid/key x y s
+// key state change at (x,y) to s (0 or 1, 1 = key down, 0 = key up).
+void send_grid_key(int x, int y, int state) {
+  OSCMessage msg("/grid/key");
+  msg.add(x);
+  msg.add(y);
+  msg.add(state);
+  send_osc_msg(msg);
+  msg.empty();
+}
+
 /*
  *  /grid/led/set x y s
  *  set led at (x,y) to state s (0 or 1).
